@@ -1,0 +1,15 @@
+---
+- name: User
+  block:
+    - name: Disable the root user
+      user:
+        name: root
+        state: present
+        password_lock: true
+
+    - name: Disable the ubuntu user
+      user:
+        name: ubuntu
+        state: present
+        password_lock: true
+        shell: "/sbin/nologin"

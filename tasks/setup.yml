@@ -1,0 +1,51 @@
+---
+- name: Upgrade packages
+  apt:
+    upgrade: "yes"
+    update_cache: "yes"
+
+- name: Install packages
+  apt:
+    pkg:
+      - ntp
+      - curl
+      - wget
+      - git
+      - jq
+      - make
+      - rsyslog
+
+- name: Set timezone to UTC
+  community.general.timezone:
+    name: Etc/UTC
+
+- name: Remove packages
+  apt:
+    pkg:
+      - unattended-upgrades
+    state: absent
+
+- name: Copy limits.conf
+  copy:
+    src: "{{ role_path }}/files/limits.conf"
+    dest: /etc/security/limits.conf
+
+- name: Copy common-session
+  copy:
+    src: "{{ role_path }}/files/common-session"
+    dest: /etc/pam.d/common-session
+
+- name: Copy system.conf
+  copy:
+    src: "{{ role_path }}/files/system.conf"
+    dest: /etc/systemd/system.conf
+
+- name: Copy user.conf
+  copy:
+    src: "{{ role_path }}/files/user.conf"
+    dest: /etc/systemd/user.conf
+
+- name: Copy rsyslog
+  copy:
+    src: "{{ role_path }}/files/rsyslog"
+    dest: /etc/logrotate.d/rsyslog

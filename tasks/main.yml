@@ -1,0 +1,4 @@
+---
+- block:
+  - include_file: user.yml
+  - include_file: setup.yml
