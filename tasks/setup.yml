@@ -14,6 +14,7 @@
       - jq
       - make
       - rsyslog
+      - mdadm
 
 - name: Set timezone to UTC
   community.general.timezone:
