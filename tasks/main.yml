@@ -1,5 +1,6 @@
 ---
-- block:
-  - include_file: user.yml
+- name: User
+  include_tasks: user.yml
 
-  - include_file: setup.yml
+- name: Setup
+  include_tasks: setup.yml
