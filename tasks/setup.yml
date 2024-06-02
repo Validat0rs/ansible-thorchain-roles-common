@@ -15,6 +15,7 @@
       - make
       - rsyslog
       - mdadm
+      - expect
 
 - name: Set timezone to UTC
   community.general.timezone:
