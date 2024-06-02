@@ -16,6 +16,8 @@
       - rsyslog
       - mdadm
       - expect
+      - libxml2
+      - libxml2-utils
 
 - name: Set timezone to UTC
   community.general.timezone:
